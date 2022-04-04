@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lisz1012/SpringCloud-Config-Center.git
+        default-label: master
+server:
+  port: 9999
+eureka:
+  client:
+    service-url:
+      #      defaultZone: http://registrar:7900/eureka/   #  docker环境用这个配置
+      defaultZone: http://lisz:666@localhost:7900/eureka/
+    healthcheck:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      # Actuator上报
+      exposure:
+        include: '*'
+  endpoint:
+    shutdown:
+      # 调 Up/Down 状态
+      enabled: true
